@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://json-schema.org/draft-06/schema#",
+  "title": "DeleteLoadbalancer ",
+  "type": "object",
+  "properties": {
+    "applicationName": {
+      "description": "Name of application to be deleted",
+      "type": "string"
+    },
+    "description": {
+      "description": "description of operation over application",
+      "type": "string"
+    },
+
+    "job": {
+      "type": "array",
+      "items": {
+                "type": "object"
+              },
+      "properties": {
+        "type": {
+          "description": "Type of operation over application",
+          "type": "string"
+        },
+        "cloudProvider": {
+          "description": "CloudProvider type",
+          "type": "string"
+        },
+        "loadBalancerName": {
+          "description": "Name of loadBalancer",
+          "type": "string"
+        },
+        "credentials": {
+          "description": "CloudProvider account name",
+          "type": "string"
+        },
+        "namespace": {
+          "description": "Namespace of cloud",
+          "type": "string"
+        }
+
+      },
+      "required": [
+        "job"
+      ]
+    }
+  },
+  "required": [
+    "applicationName",
+    "description",
+    "job"
+  ]
+}

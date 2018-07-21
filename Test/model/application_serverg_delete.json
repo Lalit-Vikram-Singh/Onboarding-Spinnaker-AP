@@ -1,0 +1,99 @@
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "$id": "http://json-schema.org/draft-06/schema#",
+  "title": "DeleteServergroup",
+  "type": "object",
+  "properties": {
+    "applicationName": {
+      "description": "Name of application to be deleted",
+      "type": "string"
+    },
+    "description": {
+      "description": "description of operation over application",
+      "type": "string"
+    },
+
+    "job": {
+      "type": "array",
+      "items": {
+                "type": "object"
+              },
+      "properties": {
+
+        "interestingHealthProviderNames": {
+         "type": "array",
+         "items": {
+           "description": "",
+           "type": "string"
+         }
+
+        },
+        "type": {
+          "description": "Type of operation over application",
+          "type": "string"
+        },
+        "asgName": {
+          "description": "Assign serverGroup Name",
+          "type": "string"
+        },
+        "cloudProvider": {
+          "description": "CloudProvider type",
+          "type": "string"
+        },
+        "serverGroupName": {
+          "description": "Name of serverGroup",
+          "type": "string"
+        },
+        "credentials": {
+          "description": "CloudProvider account name",
+          "type": "string"
+        },
+        "region": {
+          "description": "region of serverGroup",
+          "type": "string"
+        },
+
+        "moniker":{
+          "type": "object",
+          "properties": {
+            "app": {
+            "description": "Name of application",
+            "type": "string"
+           },
+            "cluster": {
+            "description": "Name of application cluster",
+            "type": "string"
+           },
+            "detail": {
+            "description": "Type of service, in this case (cluster)",
+            "type": "string"
+           },
+            "sequence": {
+            "description": "sequence no",
+            "type": "int"
+           },
+            "stack": {
+            "description": "stack",
+            "type": "string"
+           }
+          },
+          "required": [
+            "app",
+            "cluster"
+          ]
+        }
+
+
+      },
+      "required": [
+        "moniker",
+        "interestingHealthProviderNames"
+      ]
+    }
+  },
+  "required": [
+    "applicationName",
+    "description",
+    "job"
+  ]
+}
